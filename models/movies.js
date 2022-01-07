@@ -55,7 +55,7 @@ const actionMovies = [
     video: "https://www.youtube.com/embed/aK-X2d0lJ_s",
   },
 ];
-exports.actionMovies;
+exports.actionMovies = actionMovies;
 // new movies ==> 6 items
 
 const newMovies = [
@@ -115,7 +115,7 @@ const newMovies = [
   },
 ];
 
-exports.newMovies;
+exports.newMovies = newMovies;
 // movies ==> 12 items ( action + new )
 exports.movies = [...actionMovies, ...newMovies];
 
