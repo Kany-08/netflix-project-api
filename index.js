@@ -11,7 +11,7 @@ const {
 } = require("./controllers/movies");
 
 
-const {tvShows,actionTvShows,newTvShows,getTvShow} = require('./controllers/tvShows')
+const {tvShows,actionTvShows,newTvShows,getTvShow,getTvShowEpisode,getTvShowSeason} = require('./controllers/tvShows')
 
 /**************** Movies *******************/
 //1) all movies route
@@ -56,6 +56,17 @@ app.get('/tv-show/:tvShowId', getTvShow)
 
 
 //5) find episode by ID => /:tvShowId/:seasonId/:episodeId
+
+/**
+ req.params = {
+   tvShowId:xxx,
+   seasonId:xxx,
+   episodeId:xxx
+ }
+ */
+app.get('/tv-show-episode/:tvShowId/:seasonId/:episodeId', getTvShowEpisode)
+
+app.get('/tv-show-season/:tvShowId/:seasonId', getTvShowSeason)
 
 app.listen(port, () => {
   console.log(`App listening at http://localhost:${port}`);

@@ -20,3 +20,21 @@ exports.getTvShow =(req, res)=>{
    res.send(findTvShow)
 
 }
+
+exports.getTvShowEpisode=(req, res)=>{
+    const {tvShowId, seasonId,episodeId} = req.params
+    const findTvShow = tvShows.find((item)=> item.id == tvShowId)
+    const findSeason = findTvShow.seasons.find((item)=> item.id == seasonId)
+    const findEpisode = findSeason.episodes.find((item)=>item.id == episodeId)
+    res.send(findEpisode)
+}
+
+exports.getTvShowSeason=(req, res)=>{
+    // const { tvShowId, seasonId } = req.params
+    const tvShowId= req.params.tvShowId
+    const seasonId= req.params.seasonId
+    const findTvShow = tvShows.find((item)=> item.id == tvShowId)
+    const findSeason = findTvShow.seasons.find((item)=> item.id == seasonId)
+     res.send(findSeason)
+
+}
