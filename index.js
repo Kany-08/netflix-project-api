@@ -2,7 +2,9 @@ require("dotenv").config();
 
 const express = require("express");
 const app = express();
-const port = process.env.PORT;
+const port = process.env.PORT || 1888;
+const cors = require("cors")
+
 const {
   movies,
   actionMovies,
@@ -15,6 +17,7 @@ const {tvShows,actionTvShows,newTvShows,getTvShow,getTvShowEpisode,getTvShowSeas
 
 /**************** Movies *******************/
 //1) all movies route
+app.use(cors())
 
 app.get("/movies", movies);
 
